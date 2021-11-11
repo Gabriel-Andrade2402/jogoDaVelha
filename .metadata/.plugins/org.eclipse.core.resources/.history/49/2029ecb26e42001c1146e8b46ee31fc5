@@ -1,0 +1,6 @@
+package game.board;
+
+public class Board {
+	private String[][] board = new String[3][3];
+	
+}

@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+D:\User\Gabriel\Programacao\Workspaces\JogoDaVelha-Edimar\.metadata\.plugins\org.eclipse.jdt.core
+1026413486.index
+2038277092.index

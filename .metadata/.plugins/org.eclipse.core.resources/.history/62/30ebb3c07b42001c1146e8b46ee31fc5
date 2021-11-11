@@ -1,0 +1,11 @@
+package game.computer;
+
+public class ComputerMedium extends Computer{
+
+	@Override
+	public String Play() {
+		// TODO Auto-generated method stub
+		return super.Play();
+	}
+	public 
+}

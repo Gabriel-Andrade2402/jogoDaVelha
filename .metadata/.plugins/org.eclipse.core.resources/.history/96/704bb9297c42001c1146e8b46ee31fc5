@@ -1,0 +1,14 @@
+package game.computer;
+
+import game.board.Board;
+
+public class Computer {
+	private Integer countPLays;
+	private Board board;
+	
+	public Computer(Board board) {}
+	
+	public String Play() {
+		return "";
+	}
+}

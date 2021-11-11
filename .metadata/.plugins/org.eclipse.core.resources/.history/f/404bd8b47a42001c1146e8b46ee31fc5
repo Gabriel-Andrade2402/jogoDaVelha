@@ -1,0 +1,6 @@
+package game.computer;
+
+public class Computer {
+	private Integer countPLays;
+	
+}

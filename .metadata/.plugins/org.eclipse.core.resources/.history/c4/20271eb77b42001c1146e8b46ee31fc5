@@ -1,0 +1,11 @@
+package game.computer;
+
+public class ComputerEasy extends Computer{
+
+	@Override
+	private String Play() {
+		// TODO Auto-generated method stub
+		return super.Play();
+	}
+	
+}

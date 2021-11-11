@@ -1,0 +1,12 @@
+package game.player;
+
+public class Player {
+	
+	public Player() {
+		
+	}
+	
+	private play() {
+		
+	}
+}
