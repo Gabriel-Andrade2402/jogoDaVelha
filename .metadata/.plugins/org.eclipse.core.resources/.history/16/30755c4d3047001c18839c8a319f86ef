@@ -25,15 +25,14 @@ public class ComputerHard extends Computer {
 			return play;
 		}
 		Random generator = new Random();
-		if(generator.nextInt(2)+1==1 && lastPLay!=null) {
+		if(generator.nextInt(2)+1==1) {
 			String play = attackTwo();
 			lastPLay = play;
-			return play;
 		}else {
 			String play = gererRandomPlay();
 			lastPLay = play;
-			return play;
 		}
+		return play;
 	}
 
 	// Esse método checa se é preciso fazer uma defesa para não perder

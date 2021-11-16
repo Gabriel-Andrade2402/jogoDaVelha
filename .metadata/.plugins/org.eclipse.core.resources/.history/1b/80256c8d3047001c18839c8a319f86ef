@@ -25,7 +25,7 @@ public class ComputerHard extends Computer {
 			return play;
 		}
 		Random generator = new Random();
-		if(generator.nextInt(2)+1==1 && lastPLay!=null) {
+		if(generator.nextInt(2)+1==1) {
 			String play = attackTwo();
 			lastPLay = play;
 			return play;

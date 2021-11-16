@@ -24,16 +24,9 @@ public class ComputerHard extends Computer {
 			lastPLay = play;
 			return play;
 		}
-		Random generator = new Random();
-		if(generator.nextInt(2)+1==1 && lastPLay!=null) {
-			String play = attackTwo();
-			lastPLay = play;
-			return play;
-		}else {
-			String play = gererRandomPlay();
-			lastPLay = play;
-			return play;
-		}
+		String play = gererRandomPlay();
+		lastPLay = play;
+		return play;
 	}
 
 	// Esse método checa se é preciso fazer uma defesa para não perder
@@ -127,7 +120,9 @@ public class ComputerHard extends Computer {
 	 * Esse método consiste em jogar sempre na casa mais próxima com condição de
 	 * vitória
 	 */
-	public String attackTwo() {
+	public String attackTwo(String[][] board) {
+		board[0][0] = "X";
+		lastPLay = "A1";
 		String last = decipherPlay(lastPLay);
 		Integer lastColumn = Integer.parseInt(last.split("")[0])-1;
 		Integer lastLine = Integer.parseInt(last.split("")[1])-1;
@@ -154,8 +149,9 @@ public class ComputerHard extends Computer {
 			}
 		}
 		Random generator = new Random();
-		String play=fullPlays.get(generator.nextInt(fullPlays.size()));
-		return convertNumberToColumn(Integer.parseInt(play.split("")[1])+1)+play.split("")[0];
+		String play=fullPlays.get(generator.nextInt(fullPlays.size())+1);
+		
+		return 
 	}
 
 	// Método de auxilio para retornar uma possivel jogada no tabuleiro

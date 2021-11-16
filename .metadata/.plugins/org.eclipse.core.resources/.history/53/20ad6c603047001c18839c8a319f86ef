@@ -15,8 +15,7 @@ public class PlayGame {
 		*/
 		Board board = new Board();
 		ComputerHard comp = new ComputerHard();
-		Player player = new Player();
-		System.out.println(board.gameplay(player, comp));
+		System.out.println(comp.attackTwo(board.getBoard()));
 	}
 
 }
