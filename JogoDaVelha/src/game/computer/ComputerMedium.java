@@ -22,49 +22,80 @@ public class ComputerMedium extends Computer{
 	//Esse método checa se é preciso fazer uma defesa para não perder
 	//Ou se é possivel gerar um ataque final
 	public String caseDefenceOrAtack(String player) {
+		System.out.println("Check line");
 		// Check Lines
 		for (int line = 0; line < 3; line++) {
 			if (board[line][0] == player && board[line][1] == player) {
-				return "C"+(line+1);
+				//Confirma que o espaço que pode gerar uma vitória esteja vazio
+				if(board[line][2]==null) {
+					System.out.println("Entrou C");
+					return "C"+(line+1);
+				}
 			}
 			if (board[line][0] == player && board[line][2] == player) {
-				return "B"+(line+1);
+				if(board[line][1]==null) {
+					System.out.println("Entrou B");
+					return "B"+(line+1);
+				}
 			}
 			if (board[line][1] == player && board[line][2] == player) {
-				return "A"+(line+1);
+				if(board[line][0]==null) {
+					System.out.println("Entrou A");
+					return "A"+(line+1);
+				}
 			}
 		}
+		System.out.println("Check columns");
 		// Check Columns
 		for (int column = 0; column < 3; column++) {
 			String columnName = convertNumberToColumn(column+1);
 			if (board[0][column] == player && board[1][column] == player) {
-				return columnName+3;
+				if(board[2][column]==null) {
+					return columnName+3;
+				}
 			}
 			if (board[0][column] == player && board[2][column] == player) {
-				return columnName+2;
+				if(board[1][column]==null) {
+					return columnName+2;
+				}
 			}
 			if (board[1][column] == player && board[2][column] == player) {
-				return columnName+1;
+				if(board[0][column]==null) {
+					return columnName+1;
+				}
 			}
 		}
+		System.out.println("Check diagonals");
 		// Check diagonals
 		if (board[0][0] == player && board[1][1] == player) {
-			return "C3";
+			if(board[2][2]==null){
+				return "C3";
+			}
 		}
 		if (board[0][0] == player && board[2][2] == player) {
-			return "B2";	
+			if(board[1][1]==null){
+				return "B2";	
+			}
 		}
 		if (board[1][1] == player && board[2][2] == player) {
-			return "A1";
+			if(board[0][0]==null){
+				return "A1";
+			}
 		}
 		if (board[0][2] == player && board[1][1] == player) {
-			return "A3";
+			if(board[0][2]==null){
+				return "A3";
+			}
 		}
 		if (board[0][2] == player && board[2][0] == player) {
-			return "B2";
+			if(board[1][1]==null){
+				return "B2";
+			}
 		}
 		if (board[2][0] == player && board[1][1] == player) {
-			return "C1";
+			if(board[2][0]==null){
+				return "C1";
+			}
 		}
 		return null;
 	}

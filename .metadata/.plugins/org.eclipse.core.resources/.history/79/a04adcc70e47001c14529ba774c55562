@@ -1,0 +1,85 @@
+package game.computer;
+
+import java.util.Random;
+
+public class ComputerMedium extends Computer{
+
+	public ComputerMedium() {
+	}
+	@Override
+	public String Play(String[][] board) {
+		System.out.println("Nova jogada");
+		this.countPLays+=1;
+		this.board = board;
+		if(caseDefenceOrAtack("X")!=null) {
+			return caseDefenceOrAtack("X");
+		}
+		if(caseDefenceOrAtack("O")!=null) {
+			return caseDefenceOrAtack("O");
+		}
+		
+		return gererRandomPlay();
+	}
+	//Esse método checa se é preciso fazer uma defesa para não perder
+	//Ou se é possivel gerar um ataque final
+	public String caseDefenceOrAtack(String player) {
+		// Check Lines
+		for (int line = 0; line < 3; line++) {
+			if (board[line][0] == player && board[line][1] == player) {
+				return "C"+(line+1);
+			}
+			if (board[line][0] == player && board[line][2] == player) {
+				return "B"+(line+1);
+			}
+			if (board[line][1] == player && board[line][2] == player) {
+				return "A"+(line+1);
+			}
+		}
+		// Check Columns
+		for (int column = 0; column < 3; column++) {
+			String columnName = convertNumberToColumn(column+1);
+			if (board[0][column] == player && board[1][column] == player) {
+				return columnName+3;
+			}
+			if (board[0][column] == player && board[2][column] == player) {
+				return columnName+2;
+			}
+			if (board[1][column] == player && board[2][column] == player) {
+				return columnName+1;
+			}
+		}
+		// Check diagonals
+		if (board[0][0].equals(player) && board[1][1].equals(player)) {
+			return "C3";
+		}
+		if (board[0][0].equals(player) && board[2][2].equals(player)) {
+			return "B2";	
+		}
+		if (board[1][1] == player && board[2][2] == player) {
+			return "A1";
+		}
+		if (board[0][2] == player && board[1][1] == player) {
+			return "A3";
+		}
+		if (board[0][2] == player && board[2][0] == player) {
+			return "B2";
+		}
+		if (board[2][0] == player && board[1][1] == player) {
+			return "C1";
+		}
+		return null;
+	}
+
+	public String gererRandomPlay() {
+		Random generator = new Random();
+		Integer column=generator.nextInt(3)+1;
+		Integer line=generator.nextInt(3)+1;
+		while(board[line-1][column-1]!=null) {
+			column = generator.nextInt(3)+1;
+			line = generator.nextInt(3)+1;
+		}
+		String play = convertNumberToColumn(column)+line;
+		return play;
+	}
+
+}

@@ -26,6 +26,7 @@ public class Board {
 	}
 	//Método usado para settar uma nova jogada
 	private boolean Play(String play, String identify) {
+		System.out.println(play);
 		play = decipherPlay(play);
 		if (checkPlay(play)) {
 			if (identify == "player") {

@@ -10,7 +10,7 @@ public class PlayGame {
 		Board board = new Board();
 		ComputerMedium comp = new ComputerMedium();
 		Player player = new Player();
-		board.gameplay(player, comp);
+		System.out.println(board.gameplay(player, comp));;
 	}
 
 }
