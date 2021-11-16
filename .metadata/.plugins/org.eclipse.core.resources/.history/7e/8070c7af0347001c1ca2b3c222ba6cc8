@@ -1,0 +1,78 @@
+package game.computer;
+
+import java.util.Random;
+
+public class ComputerMedium extends Computer{
+
+	public ComputerMedium(String[][] board) {
+		super(board);
+	}
+	@Override
+	public String Play() {
+		if(caseDefenceOrAtack("X")!=null) {
+			return caseDefenceOrAtack("X");
+		}
+		if(caseDefenceOrAtack("O")!=null) {
+			return caseDefenceOrAtack("O");
+		}
+		
+		return gererRandomPlay();
+	}
+	//Esse método checa se é preciso fazer uma defesa para não perder
+	//Ou se é possivel gerar um ataque final
+	public String caseDefenceOrAtack(String player) {
+		// Check Lines
+		for (int line = 0; line < 3; line++) {
+			if (board[line][0] == player && board[line][1] == player) {
+				return "C"+line;
+			}
+			if (board[line][0] == player && board[line][2] == player) {
+				return "B"+line;
+			}
+			if (board[line][1] == player && board[line][2] == player) {
+				return "A"+line;
+			}
+		}
+		// Check Columns
+		for (int column = 0; column < 3; column++) {
+			String columnName = convertNumberToColumn(column+1);
+			if (board[0][column] == player && board[1][column] == player) {
+				return columnName+2;
+			}
+			if (board[0][column] == player && board[2][column] == player) {
+				return columnName+1;
+			}
+			if (board[1][column] == player && board[2][column] == player) {
+				return columnName+0;
+			}
+		}
+		// Check diagonals
+		if (board[0][0] == player && board[1][1] == player) {
+			return "C2";
+		}
+		if (board[0][0] == player && board[2][2] == player) {
+			return "B1";	
+		}
+		if (board[1][1] == player && board[2][2] == player) {
+			return "A0";
+		}
+		if (board[0][2] == player && board[1][1] == player) {
+			return "A2";
+		}
+		if (board[0][2] == player && board[2][0] == player) {
+			return "B1";
+		}
+		if (board[2][0] == player && board[1][1] == player) {
+			return "C0";
+		}
+		return null;
+	}
+
+	public String gererRandomPlay() {
+		Random generator = new Random();
+		String play = convertNumberToColumn(generator.nextInt(3)+1);
+		play+=generator.nextInt(3)+1;
+		return "";
+	}
+
+}

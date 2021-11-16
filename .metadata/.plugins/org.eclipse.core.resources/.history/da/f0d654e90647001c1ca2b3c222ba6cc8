@@ -1,0 +1,13 @@
+package game.computer;
+
+public class ComputerEasy extends Computer{
+
+	public ComputerEasy(String[][] board) {
+	}
+
+	@Override
+	public String Play(String[][] board) {
+		return "";
+	}
+	
+}

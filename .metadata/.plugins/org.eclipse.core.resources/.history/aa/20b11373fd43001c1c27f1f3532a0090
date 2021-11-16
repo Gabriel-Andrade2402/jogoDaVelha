@@ -1,0 +1,31 @@
+package game.computer;
+
+import game.board.Board;
+
+public class Computer {
+	private Integer countPLays;
+	public String[][] board;
+	
+	public Computer(String[][] board) {
+		this.board=board;
+	}
+	
+	public String Play() {
+		return "";
+	}
+	public String convertNumberToColumn(Integer i) {
+		String columnName = "";
+		switch(i) {
+			case 1:
+				columnName="A";
+				break;
+			case 2:
+				columnName="B";
+				break;
+			case 3:
+				columnName="C";
+				break;
+		}
+		return columnName;
+	}
+}

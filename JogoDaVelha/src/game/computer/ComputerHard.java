@@ -3,11 +3,11 @@ package game.computer;
 public class ComputerHard extends Computer{
 
 	public ComputerHard(String[][] board) {
-		super(board);
 	}
 
 	@Override
-	public String Play() {
+	public String Play(String[][] board) {
+		this.board= board;
 		if(caseDefence()!=null) {
 			return caseDefence();
 		}

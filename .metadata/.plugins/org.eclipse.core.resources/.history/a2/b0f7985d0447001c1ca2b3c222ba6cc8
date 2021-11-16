@@ -1,0 +1,12 @@
+package main;
+
+import game.board.Board;
+import game.computer.ComputerMedium;
+
+public class PlayGame {
+
+	public static void main(String[] args) {
+		ComputerMedium comp = new ComputerMedium(new Board().getBoard());
+	}
+
+}
