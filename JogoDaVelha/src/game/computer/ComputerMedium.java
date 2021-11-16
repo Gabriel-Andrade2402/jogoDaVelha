@@ -10,42 +10,38 @@ public class ComputerMedium extends Computer{
 	public String Play(String[][] board) {
 		this.countPLays+=1;
 		this.board = board;
-		if(caseDefenceOrAtack("X")!=null) {
-			return caseDefenceOrAtack("X");
-		}
 		if(caseDefenceOrAtack("O")!=null) {
 			return caseDefenceOrAtack("O");
 		}
+		if(caseDefenceOrAtack("X")!=null) {
+			return caseDefenceOrAtack("X");
+		}
+		
 		
 		return gererRandomPlay();
 	}
 	//Esse método checa se é preciso fazer uma defesa para não perder
 	//Ou se é possivel gerar um ataque final
 	public String caseDefenceOrAtack(String player) {
-		System.out.println("Check line");
 		// Check Lines
 		for (int line = 0; line < 3; line++) {
 			if (board[line][0] == player && board[line][1] == player) {
 				//Confirma que o espaço que pode gerar uma vitória esteja vazio
 				if(board[line][2]==null) {
-					System.out.println("Entrou C");
 					return "C"+(line+1);
 				}
 			}
 			if (board[line][0] == player && board[line][2] == player) {
 				if(board[line][1]==null) {
-					System.out.println("Entrou B");
 					return "B"+(line+1);
 				}
 			}
 			if (board[line][1] == player && board[line][2] == player) {
 				if(board[line][0]==null) {
-					System.out.println("Entrou A");
 					return "A"+(line+1);
 				}
 			}
 		}
-		System.out.println("Check columns");
 		// Check Columns
 		for (int column = 0; column < 3; column++) {
 			String columnName = convertNumberToColumn(column+1);
@@ -65,7 +61,6 @@ public class ComputerMedium extends Computer{
 				}
 			}
 		}
-		System.out.println("Check diagonals");
 		// Check diagonals
 		if (board[0][0] == player && board[1][1] == player) {
 			if(board[2][2]==null){

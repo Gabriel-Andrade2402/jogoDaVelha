@@ -11,14 +11,26 @@ public class Board {
 	}
 	//Método usado para iniciar a partida
 	public String gameplay(Player player,Computer comput) {
+		//Este bloco constitui a primeira jogada da partida.
 		if(player.getCountPLays()==0) {
-			Play(player.play(),"player");
+			Boolean validPlay=Play(player.play(),"player");
+			while(!validPlay) {
+				validPlay=Play(player.play(),"player");
+			}
+			player.setCountPLays(player.getCountPLays()+1);
 		}
+		//Este bloco constitui o decorrer do jogo.
 		while(checkSituation()=="continue") {
+			//Jogada do computador
 			if(player.getCountPLays()>comput.getCountPLays()) {
 				Play(comput.Play(board),"computer");
-			}else {
-				Play(player.play(),"player");
+			}/*Jogada do player*/ else {
+				//Validação de que a jogada não 
+				Boolean validPlay=Play(player.play(),"player");
+				while(!validPlay) {
+					validPlay=Play(player.play(),"player");
+				}
+				player.setCountPLays(player.getCountPLays()+1);
 			}
 			System.out.println(seeGame());;
 		}
@@ -26,7 +38,6 @@ public class Board {
 	}
 	//Método usado para settar uma nova jogada
 	private boolean Play(String play, String identify) {
-		System.out.println(play);
 		play = decipherPlay(play);
 		if (checkPlay(play)) {
 			if (identify == "player") {
@@ -55,13 +66,23 @@ public class Board {
 	}
 	//Método usado para conferir se a jogada está disponivel
 	private boolean checkPlay(String play) {
-		Integer column = Integer.parseInt(play.split("")[0]);
-		Integer line = Integer.parseInt(play.split("")[1]);
-		if (board[line-1][column-1] != null) {
-			return false;
-		} else {
-			return true;
+		if(play!=null) {
+			Integer column = Integer.parseInt(play.split("")[0]);
+			Integer line = Integer.parseInt(play.split("")[1]);
+			
+			try {
+				if (board[line-1][column-1] != null) {
+					return false;
+				} else {
+					return true;
+				}
+			}catch(Exception e) {
+				System.out.println("Ocorreu um erro inesperado.");
+			}
+		}else {
+			System.out.println("Ocorreu um erro inesperado.");
 		}
+		return false;
 	}
 	//Método usado para checar o estado do jogo.
 	private String checkSituation() {

@@ -11,12 +11,15 @@ public class Player {
 	
 	public String play() {
 		Scanner sc = new Scanner(System.in);
-		countPLays+=1;
 		return sc.next();
 	}
 
 	public Integer getCountPLays() {
 		return countPLays;
+	}
+
+	public void setCountPLays(Integer countPLays) {
+		this.countPLays = countPLays;
 	}
 	
 }
