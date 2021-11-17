@@ -1,0 +1,58 @@
+package main;
+
+import java.util.Scanner;
+
+import game.board.Board;
+import game.computer.ComputerEasy;
+import game.computer.ComputerMedium;
+import game.player.Player;
+
+public class PlayGame {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		/*Board board = new Board();
+		ComputerHard comp = new ComputerHard();
+		Player player = new Player();
+		System.out.println(board.gameplay(player, comp));
+		*/
+		
+		System.out.println("JOGO DA VELHA");
+		System.out.println("Para iniciar o jogo escolha o número de uma dificuldade :");
+		System.out.println("1.Fácil   2.Médio   3.Difícil");
+		Integer difficulty = sc.nextInt();
+		while(difficulty!=1&&difficulty!=2&&difficulty!=3) {
+			System.out.println("Dificuldade não encontrada, Digite o número da dificuldade:");
+			System.out.println("1.Facíl   2.Médio   3.Difícil");
+			difficulty = sc.nextInt();
+		}
+		switch(difficulty) {
+		case 1:
+			System.out.println("Dificuldade fácil selecionada.");
+			System.out.println("As leituras das jogadas são baseadas em linhha e coluna.");
+			System.out.println("Ex de jogada:  A1 ou B3 ou C2");
+			Board boardEasy = new Board();
+			ComputerEasy compEasy = new ComputerEasy();
+			Player player = new Player();
+			System.out.println(boardEasy.seeGame());
+			System.out.println("Começe o jogo");
+			System.out.println(boardEasy.gameplay(player, compEasy));
+			break;
+		case 2:
+			System.out.println("Dificuldade Médio selecionada.");
+			System.out.println("As leituras das jogadas são baseadas em linhha e coluna.");
+			System.out.println("Ex de jogada:  A1 ou B3 ou C2");
+			Board boardMedium = new Board();
+			ComputerMedium compMedium = new ComputerMedium();
+			Player playerMedium = new Player();
+			System.out.println(boardMedium.gameplay(playerMedium, compMedium));;
+			break;
+		case 3:
+			System.out.println("Dificuldade Difícil selecionada.");
+			System.out.println("As leituras das jogadas são baseadas em linhha e coluna.");
+			System.out.println("Ex de jogada:  A1 ou B3 ou C2");
+			break;
+		}
+	}
+
+}

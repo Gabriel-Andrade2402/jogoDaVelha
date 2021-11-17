@@ -17,21 +17,25 @@ public class ComputerHard extends Computer {
 		if (caseDefenceOrAtack("O") != null) {
 			String play = caseDefenceOrAtack("O");
 			lastPLay = play;
+			System.out.println(play);
 			return play;
 		}
 		if (caseDefenceOrAtack("X") != null) {
 			String play = caseDefenceOrAtack("X");
 			lastPLay = play;
+			System.out.println(play);
 			return play;
 		}
 		Random generator = new Random();
 		if(generator.nextInt(2)+1==1 && lastPLay!=null) {
 			String play = attackTwo();
 			lastPLay = play;
+			System.out.println(play);
 			return play;
 		}else {
 			String play = gererRandomPlay();
 			lastPLay = play;
+			System.out.println(play);
 			return play;
 		}
 	}

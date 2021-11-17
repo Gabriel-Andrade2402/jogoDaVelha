@@ -1,0 +1,42 @@
+package main;
+
+import java.util.Scanner;
+
+public class PlayGame {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		/*Board board = new Board();
+		ComputerMedium comp = new ComputerMedium();
+		Player player = new Player();
+		System.out.println(board.gameplay(player, comp));;
+		*/
+		/*Board board = new Board();
+		ComputerHard comp = new ComputerHard();
+		Player player = new Player();
+		System.out.println(board.gameplay(player, comp));
+		*/
+		/*Board board = new Board();
+		ComputerEasy comp = new ComputerEasy();
+		Player player = new Player();
+		System.out.println(board.gameplay(player, comp));
+		*/
+		System.out.println("JOGO DA VELHA");
+		System.out.println("Para iniciar o jogo escolha o número de uma dificuldade :");
+		System.out.println("1.Facíl   2.Médio   3.Difícil");
+		Integer difficulty = sc.nextInt();
+		while(difficulty!=1||difficulty!=2||difficulty!=3) {
+			switch(difficulty) {
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			}
+			System.out.println("Dificuldade não encontrada, Digite o número da dificuldade:");
+			System.out.println("1.Facíl   2.Médio   3.Difícil");
+		}
+	}
+
+}

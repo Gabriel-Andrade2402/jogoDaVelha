@@ -4,4 +4,6 @@
     <fullyQualifiedTypeName name="game.computer.ComputerMedium"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="game.computer.ComputerHard"/>
+    <fullyQualifiedTypeName name="game.computer.ComputerEasy"/>
+    <fullyQualifiedTypeName name="game.Game"/>
 </qualifiedTypeNameHistroy>

@@ -139,7 +139,7 @@ public class Board {
 		return "Empate";
 	}
 	//Método usado para imprimir o tabuleiro
-	private String seeGame() {
+	public String seeGame() {
 		StringBuilder str = new StringBuilder();
 		str.append((board[0][0] == null) ? "  | " : board[0][0] + " | ");
 		str.append((board[0][1] == null) ? "  | " : board[0][1] + " | ");

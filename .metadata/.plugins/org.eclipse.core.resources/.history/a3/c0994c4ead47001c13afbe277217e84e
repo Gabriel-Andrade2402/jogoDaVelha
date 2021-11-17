@@ -1,0 +1,17 @@
+package main;
+
+import java.util.Scanner;
+
+import game.board.Board;
+import game.computer.ComputerEasy;
+import game.computer.ComputerHard;
+import game.computer.ComputerMedium;
+import game.player.Player;
+
+public class PlayGame {
+	//Método main que começa o aplicativo
+	public static void main(String[] args) {
+		
+	}
+
+}
